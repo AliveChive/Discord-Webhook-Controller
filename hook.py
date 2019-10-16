@@ -15,10 +15,16 @@ def main():
         main()
     print(colored('Logged in','green'))
     time.sleep(1)
+
     while True:
         clear()
         msg = input(colored('please enter a message: ','cyan'))
-        Webhook(hook).send(msg)
-        print(colored('sent!','green'))
-        time.sleep(.3)
+        try:
+            Webhook(hook).send(msg)
+            print(colored('sent!','green'))
+            time.sleep(.3)
+        except:
+            print(colored('you need to input something dummie','yellow'))
+            time.sleep(1)
+            clear()
 main()
